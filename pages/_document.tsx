@@ -18,31 +18,20 @@ class MyDocument extends Document {
             href="https://fonts.googleapis.com/css2?family=Pangolin&display=swap"
             rel="stylesheet"
           />
-          <meta
-            name="keywords"
-            content={
-              "Slave Princess, Britney Spears, Britney, Awakened Pictures, Free Britney, #FreeBritney, Lou Taylor, Team Con"
-            }
-          />
+          <meta name="keywords" content={"Frontend, react"} />
           <meta
             name="description"
-            content={
-              "Slave Princess - a story about freedom, unity and organized crime."
-            }
+            content={"Front-end Finders - Quality developer at your fingertips"}
           />
           <meta property="og:type" content="website" />
           <meta property="og:title" content={"Slave Princess - The Film"} />
           <meta
             property="og:description"
-            content={
-              "Slave Princess is a story about freedom, unity and organized crime."
-            }
+            content={"Front-end Finders - Quality developer at your fingertips"}
           />
           <meta
             property="twitter:description"
-            content={
-              "Slave Princess is a story about freedom, unity and organized crime."
-            }
+            content={"Front-end Finders - Quality developer at your fingertips"}
           />
           <meta
             property="og:image"

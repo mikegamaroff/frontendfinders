@@ -13,4 +13,5 @@ model submissions {
   email       String? @db.VarChar(45)
   description String? @db.VarChar(45)
   phone       String? @db.VarChar(45)
+
 }
