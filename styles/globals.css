@@ -517,8 +517,8 @@ footer {
     font-size: 1.5em;
   }
   .optionSelect {
-    padding: 25px 15px;
-    gap: 20px;
+    padding: 20px 0px;
+    gap: 15px;
   }
   .progressPadding {
     padding-top: 30px;
