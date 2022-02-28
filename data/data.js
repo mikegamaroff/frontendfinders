@@ -45,7 +45,6 @@ export const steps = [
       "Speedy",
       "Project Lead",
       "Attention to detail",
-      "Organized",
     ],
   },
   {
