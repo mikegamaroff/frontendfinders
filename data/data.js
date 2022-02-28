@@ -7,22 +7,13 @@ export const steps = [
       "Figma",
       "XD",
       "Hi-Fidelity",
-      "Responsive",
       "UX/UI Design",
       "Prototyping",
     ],
   },
   {
     section: "frontend",
-    items: [
-      "Responsive",
-      "CSS",
-      "Animation",
-      "Mobile Web",
-      "Interactive",
-      "SFX",
-      "User input",
-    ],
+    items: ["Responsive", "CSS", "Animation", "Mobile Web", "Interactive"],
   },
   {
     section: "development",
