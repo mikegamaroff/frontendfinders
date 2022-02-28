@@ -50,7 +50,7 @@ class MyDocument extends Document {
           />
           <meta
             property="twitter:image:alt"
-            content={"www.slaveprincess.com"}
+            content={"www.frontendfinders.com"}
           />
 
           <meta property="og:url" content={"http://frontendfinders.com"} />
