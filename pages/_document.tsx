@@ -42,22 +42,22 @@ class MyDocument extends Document {
           />
           <meta
             property="og:image"
-            content={"https://www.slaveprincess.com/images/og2.jpg"}
+            content={"https://frontendfinders.com/images/og.jpg"}
           />
           <meta
             property="twitter:image"
-            content={"https://www.slaveprincess.com/images/og2.jpg"}
+            content={"https://frontendfinders.com/images/og.jpg"}
           />
           <meta
             property="twitter:image:alt"
             content={"www.slaveprincess.com"}
           />
 
-          <meta property="og:url" content={"http://slaveprincess.com"} />
+          <meta property="og:url" content={"http://frontendfinders.com"} />
           <meta name="twitter:card" content={"summary_large_image"}></meta>
-          <meta name="twitter:site" content="http://slaveprincess.com"></meta>
-          <meta name="twitter:site:id" content="@slaveprincess_"></meta>
-          <meta name="twitter:creator" content="Awakened Pictures"></meta>
+          <meta name="twitter:site" content="http://frontendfinders.com"></meta>
+
+          <meta name="twitter:creator" content="Frontend Finders"></meta>
         </Head>
         <body className="antialiased">
           <Main />

@@ -63,13 +63,12 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
   const { dispatch } = useContext(DispatchContext);
   const [sending, setSending] = useState(false);
   let buttonConfig;
-  let originX;
+
   const stepAdvance = (goto) => {
-    originX = goto > step ? 500 : -500;
     setStep(goto);
 
     gsap.from(document.getElementById("steps"), {
-      x: originX,
+      x: -500,
       ease: "power1.out",
       duration: 0.5,
     });

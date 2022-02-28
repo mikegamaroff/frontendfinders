@@ -1,7 +1,5 @@
 html,
 body {
-  widows: 2;
-  orphans: 2;
   padding: 0;
   margin: 0;
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
@@ -140,6 +138,7 @@ button:focus {
   justify-content: space-between;
   height: 100%;
   width: 100%;
+  transition: all 0.2s ease-in-out;
 }
 
 .contentOuterContainer {
@@ -147,20 +146,26 @@ button:focus {
   justify-content: center;
   align-items: center;
   padding: 50px 50px 20px 50px;
+  transition: all 0.2s ease-in-out;
 }
 .contentInnerContainer {
   width: 100%;
   max-width: 800px;
+
+  transition: all 0.2s ease-in-out;
 }
 .contentBlock {
   background: #8abef6;
   border-radius: 8px;
   padding: 8px 8px 8px 8px;
+  transition: all 0.2s ease-in-out;
 }
 .contentPaper {
   background: white;
   border-radius: 8px;
   padding: 30px;
+  transition: all 0.2s ease-in-out;
+  min-height: 350px;
 }
 .contentHeader {
   display: flex;
@@ -189,7 +194,8 @@ button:focus {
   align-items: center;
   clip-path: inset(-30px);
   position: relative;
-  height: 40vh;
+  height: 330px;
+  width: 100%;
 }
 .stepsContainer {
   position: absolute;
@@ -295,10 +301,8 @@ footer {
   font-weight: bold;
   color: gray;
   cursor: pointer;
-  transition: all 0.2s ease-in;
 }
 .itemSelected {
-  transition: all 0.2s ease-in;
   color: #8abef6;
   text-decoration: underline;
 }
@@ -403,6 +407,9 @@ footer {
   font-family: "Cabin Sketch", cursive;
   font-size: 20px;
 }
+/* .forceWidth {
+  background-color: #4979ae;
+} */
 @keyframes dash {
   from {
     stroke-dashoffset: 822;
@@ -462,26 +469,36 @@ footer {
   }
   .contentOuterContainer {
     padding: 15px;
+    height: 100%;
+    justify-content: flex-start;
+    display: flex;
+    align-items: flex-start;
+  }
+  .contentInnerContainer {
+    height: calc(100% - 100px);
+  }
+  .contentBlock {
+    height: 100%;
   }
   .contentPaper {
     padding: 15px;
+    height: calc(100% - 54px);
   }
   .innerContentContainer {
-    height: auto;
+    height: 100%;
     width: 100%;
     padding: 15px 0px 15px 0px;
     clip-path: inset(-15px);
   }
   .stepsContainer {
     position: relative;
-    height: auto;
+    height: 100%;
+    width: 100%;
   }
   .headline {
     width: 100%;
   }
-  .stepsContainer {
-    width: 100%;
-  }
+
   .progressCircle {
     width: 25px;
     height: 25px;
@@ -494,5 +511,15 @@ footer {
   }
   .lineBreak {
     display: block;
+  }
+  .item {
+    font-size: 1.5em;
+  }
+  .optionSelect {
+    padding: 25px 15px;
+    gap: 20px;
+  }
+  .progressPadding {
+    padding-top: 30px;
   }
 }
