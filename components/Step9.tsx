@@ -17,8 +17,8 @@ const Step9: React.FC<Step9Props> = ({ action, step, steps, selections }) => {
     <div className="stepsContainer" id="steps">
       <h2 className="blueSpans">
         <span>Success! </span>
-        <br className="lineBreak" />
-        You found a perfect match!
+        {/*      <br className="lineBreak" /> */}
+        You found the perfect match!
       </h2>
       <div className="contractorDetailsContainer">
         <div className="contractorPhoto">
@@ -33,8 +33,8 @@ const Step9: React.FC<Step9Props> = ({ action, step, steps, selections }) => {
           </div>
           <Image
             src="/images/contractor_2344_mikegamaroff.jpg"
-            width={172}
-            height={172}
+            width={150}
+            height={150}
             layout="responsive"
             alt="5 Stars"
           />

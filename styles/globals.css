@@ -505,10 +505,15 @@ footer {
     height: 25px;
   }
   .contractorDetailsContainer {
-    padding: 30px;
+    padding: 10px;
     flex-direction: column;
     justify-content: center;
     align-items: center;
+  }
+  .contractorDetails {
+    gap: 5px;
+
+    padding: 20px;
   }
   .lineBreak {
     display: block;
@@ -522,5 +527,9 @@ footer {
   }
   .progressPadding {
     padding-top: 30px;
+  }
+  .contractorPhoto {
+    height: 120px;
+    width: 120px;
   }
 }
