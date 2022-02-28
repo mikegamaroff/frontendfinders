@@ -532,4 +532,8 @@ footer {
     height: 120px;
     width: 120px;
   }
+  .formOuterContainer {
+    padding: 10px;
+    width: 100%;
+  }
 }
