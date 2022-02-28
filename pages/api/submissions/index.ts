@@ -11,8 +11,12 @@ export default async function handler(
 ) {
 
   if (req.method === "GET") {
-    const users = await prisma.submissions.findMany();
-    return res.send(users);
+
+    const submissions = await prisma.submissions.findMany();
+    const steps = await prisma.steps.findMany();
+    const items = await prisma.items.findMany();
+    return res.send({items});
+
   } else if (req.method === "POST") {
     const { body: data } = req;
     const newSubmission = await prisma.submissions.create({data} );

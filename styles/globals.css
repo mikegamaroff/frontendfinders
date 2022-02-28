@@ -1,5 +1,7 @@
 html,
 body {
+  widows: 2;
+  orphans: 2;
   padding: 0;
   margin: 0;
   background: linear-gradient(-90deg, rgba(0, 0, 0, 0.05) 1px, transparent 1px),
@@ -33,7 +35,8 @@ body {
 .box,
 .box1,
 .box2,
-.box3 {
+.box3,
+.box4 {
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
@@ -55,7 +58,8 @@ a {
 }
 h1,
 h2,
-h3 {
+h3,
+.formRowText {
   font-family: "Cabin Sketch", cursive;
   margin: 0;
   text-transform: uppercase;
@@ -69,37 +73,61 @@ h2 {
 h3 {
   font-weight: 200;
 }
-textarea {
+textarea,
+input {
   font-family: "Pangolin", cursive;
   font-size: 20px;
 }
-.box {
+textarea:focus,
+input:focus,
+button:focus {
+  outline: none;
+}
+.formRowText {
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+}
+.formButtonContainer {
+  display: flex;
+  justify-content: flex-end;
+  padding-top: 20px;
+}
+.box,
+.progress {
   margin: 25px 0px;
   background: #fff;
   border: solid black;
   border-color: black;
   float: left;
 }
+.box1,
+.box2,
+.box3,
+.box4,
+.progress {
+  border-width: 3px 4px 3px 5px;
+  width: 100%;
+  padding: 5px;
+}
 
 .box1 {
-  border-width: 3px 4px 3px 5px;
-  border-radius: 30% 3% 98% 2%/6% 92% 9% 98%;
-  transform: rotate(0.8deg);
-  width: 100%;
   height: 120px;
   padding: 15px;
+  transform: rotate(0.8deg);
+  border-radius: 30% 3% 98% 2%/6% 92% 9% 98%;
 }
 .box2 {
-  width: 350px;
-  border-width: 3px 3px 5px 5px;
-  border-radius: 4% 95% 6% 95%/95% 4% 92% 5%;
-  transform: rotate(-2deg);
+  border-radius: 30% 2% 98% 1%/15% 92% 9% 98%;
 }
-
+.fieldError {
+  border-color: red;
+}
 .box3 {
-  border-width: 5px 3px 3px 5px;
-  border-radius: 95% 4% 97% 5%/4% 94% 3% 95%;
-  transform: rotate(2deg);
+  border-radius: 30% 3% 98% 2%/6% 92% 9% 98%;
+}
+.box4 {
+  border-radius: 10% 1% 20% 3%/9% 92% 12% 78%;
 }
 .descriptionInputContainer {
   width: 100%;
@@ -113,6 +141,7 @@ textarea {
   height: 100%;
   width: 100%;
 }
+
 .contentOuterContainer {
   display: flex;
   justify-content: center;
@@ -140,12 +169,12 @@ textarea {
   padding-bottom: 5px;
 }
 .contentTopBar {
-  padding: 18px;
+  padding: 15px 15px 20px 15px;
 }
 .dotsImage {
   position: relative;
-
   width: 20%;
+
   max-width: 80px;
 }
 .blueSpans span {
@@ -169,7 +198,6 @@ textarea {
   flex-direction: column;
   align-items: center;
   text-align: center;
-
   width: 90%;
 }
 .progressPadding {
@@ -187,19 +215,51 @@ textarea {
   text-align: center;
   line-height: 1.5;
   padding: 30px;
+  widows: 2;
 }
-/* .buttonContainer {
-} */
+.widow {
+  white-space: nowrap;
+}
+.formOuterContainer {
+  padding: 20px;
+  width: 80%;
+}
+.formRow {
+  display: grid;
+  grid-template-columns: 1fr 5fr;
+  padding: 10px;
+  gap: 10px;
+  width: 100%;
+}
+.formRow input {
+  width: 100%;
+}
+.formInputContainer {
+  width: 100%;
+}
 footer {
   width: 100%;
-  background-color: gray;
+  background-color: #8abef6;
+  padding: 5px;
 }
+.copyright {
+  display: flex;
+  justify-content: center;
+  font-family: "Pangolin", cursive;
+  font-size: 13px;
+  text-align: center;
+  width: 100%;
+}
+/* .progressBar */
+
 .progressContainer {
   position: absolute;
   top: 0;
   width: 80%;
+  transition: all 0.2s ease-in-out;
 }
 .progressCircles {
+  transition: all 0.2s ease-in-out;
   display: flex;
   justify-content: space-between;
   width: 100%;
@@ -235,12 +295,54 @@ footer {
   font-weight: bold;
   color: gray;
   cursor: pointer;
+  transition: all 0.2s ease-in;
 }
 .itemSelected {
+  transition: all 0.2s ease-in;
   color: #8abef6;
   text-decoration: underline;
 }
 
+.item:hover {
+  color: black;
+  text-decoration: underline;
+}
+.contractorDetailsContainer {
+  padding: 30px;
+  display: flex;
+}
+.contractorPhoto {
+  position: relative;
+
+  height: 140px;
+  width: 140px;
+}
+.contractorBadge {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  z-index: 2;
+  right: -10px;
+  top: -10px;
+}
+.contractorDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: left;
+  gap: 15px;
+  text-align: left;
+  padding: 20px;
+}
+
+.contractorStars {
+  display: flex;
+}
+
+.starContainer {
+  width: 100%;
+  height: 24px;
+}
 /* Loader  */
 
 .progress {
@@ -253,21 +355,144 @@ footer {
   display: flex;
   height: 40px;
   width: 100%;
+  background-image: url("data:image/gif;base64,R0lGODlhBAAEAIABAAAAAAAAACH/C1hNUCBEYXRhWE1QPD94cGFja2V0IGJlZ2luPSLvu78iIGlkPSJXNU0wTXBDZWhpSHpyZVN6TlRjemtjOWQiPz4gPHg6eG1wbWV0YSB4bWxuczp4PSJhZG9iZTpuczptZXRhLyIgeDp4bXB0az0iQWRvYmUgWE1QIENvcmUgNS4wLWMwNjEgNjQuMTQwOTQ5LCAyMDEwLzEyLzA3LTEwOjU3OjAxICAgICAgICAiPiA8cmRmOlJERiB4bWxuczpyZGY9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkvMDIvMjItcmRmLXN5bnRheC1ucyMiPiA8cmRmOkRlc2NyaXB0aW9uIHJkZjphYm91dD0iIiB4bWxuczp4bXA9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC8iIHhtbG5zOnhtcE1NPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvbW0vIiB4bWxuczpzdFJlZj0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL3NUeXBlL1Jlc291cmNlUmVmIyIgeG1wOkNyZWF0b3JUb29sPSJBZG9iZSBQaG90b3Nob3AgQ1M1LjEgV2luZG93cyIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDo5NUY1OENCRDdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyIgeG1wTU06RG9jdW1lbnRJRD0ieG1wLmRpZDo5NUY1OENCRTdDMDYxMUUyOTEzMEE1MEM5QzM0NDVBMyI+IDx4bXBNTTpEZXJpdmVkRnJvbSBzdFJlZjppbnN0YW5jZUlEPSJ4bXAuaWlkOjk1RjU4Q0JCN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIiBzdFJlZjpkb2N1bWVudElEPSJ4bXAuZGlkOjk1RjU4Q0JDN0MwNjExRTI5MTMwQTUwQzlDMzQ0NUEzIi8+IDwvcmRmOkRlc2NyaXB0aW9uPiA8L3JkZjpSREY+IDwveDp4bXBtZXRhPiA8P3hwYWNrZXQgZW5kPSJyIj8+Af/+/fz7+vn49/b19PPy8fDv7u3s6+rp6Ofm5eTj4uHg397d3Nva2djX1tXU09LR0M/OzczLysnIx8bFxMPCwcC/vr28u7q5uLe2tbSzsrGwr66trKuqqainpqWko6KhoJ+enZybmpmYl5aVlJOSkZCPjo2Mi4qJiIeGhYSDgoGAf359fHt6eXh3dnV0c3JxcG9ubWxramloZ2ZlZGNiYWBfXl1cW1pZWFdWVVRTUlFQT05NTEtKSUhHRkVEQ0JBQD8+PTw7Ojk4NzY1NDMyMTAvLi0sKyopKCcmJSQjIiEgHx4dHBsaGRgXFhUUExIREA8ODQwLCgkIBwYFBAMCAQAAIfkEAQAAAQAsAAAAAAQABAAAAgYEEpdoeQUAOw==");
 }
 
 .progress-value {
   animation: load 3s normal forwards;
   border-radius: 100px;
-  background: rgba(0, 0, 0, 0.486);
+  background: rgba(255, 255, 255, 0.486);
   height: 30px;
   width: 0;
+}
+
+/* Loader */
+
+.loaderBack {
+  background-color: rgba(255, 255, 255, 0.897);
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.path {
+  width: 300px;
+  height: 300px;
+  opacity: 1;
+  stroke-dasharray: 15;
+  stroke-dashoffset: 10;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.path svg {
+  position: absolute;
+  animation: dash 5s linear infinite;
+}
+.loadingText {
+  position: absolute;
+  z-index: 5;
+  animation: loadText 5s linear infinite;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Cabin Sketch", cursive;
+  font-size: 20px;
+}
+@keyframes dash {
+  from {
+    stroke-dashoffset: 822;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+
+  0% {
+    width: 30%;
+  }
+  50% {
+    width: 60%;
+  }
+  100% {
+    width: 30%;
+  }
+}
+@keyframes loadText {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.5);
+  }
+  100% {
+    transform: scale(1);
+  }
 }
 
 @keyframes load {
   0% {
     width: 0;
   }
+  80% {
+    width: 50%;
+  }
   100% {
     width: 100%;
+  }
+}
+.lineBreak {
+  display: none;
+}
+/* Media queries */
+
+@media (max-width: 800px) {
+  .contentHeader {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+  }
+  header {
+    display: none;
+  }
+  .contentOuterContainer {
+    padding: 15px;
+  }
+  .contentPaper {
+    padding: 15px;
+  }
+  .innerContentContainer {
+    height: auto;
+    width: 100%;
+    padding: 15px 0px 15px 0px;
+    clip-path: inset(-15px);
+  }
+  .stepsContainer {
+    position: relative;
+    height: auto;
+  }
+  .headline {
+    width: 100%;
+  }
+  .stepsContainer {
+    width: 100%;
+  }
+  .progressCircle {
+    width: 25px;
+    height: 25px;
+  }
+  .contractorDetailsContainer {
+    padding: 30px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+  .lineBreak {
+    display: block;
   }
 }

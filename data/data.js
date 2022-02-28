@@ -8,8 +8,7 @@ export const steps = [
       "XD",
       "Hi-Fidelity",
       "Responsive",
-      "UX Planning",
-      "UI Design",
+      "UX/UI Design",
       "Prototyping",
     ],
   },
@@ -62,3 +61,18 @@ export const steps = [
     description: "",
   },
 ];
+
+export let ItemsConfigTemplate = {
+  item0: false,
+  item1: false,
+  item2: false,
+  item3: false,
+  item4: false,
+  item5: false,
+  item6: false,
+  item7: false,
+  item8: false,
+  item9: false,
+  item10: false,
+  count: 0,
+};

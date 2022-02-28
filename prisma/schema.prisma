@@ -14,8 +14,22 @@ model submissions {
   id          Int     @id @default(autoincrement())
   name        String? @db.VarChar(45)
   email       String? @db.VarChar(45)
-  description String? @db.VarChar(45)
+  description String? @db.Text
   phone       String? @db.VarChar(45)
-  elephant    String? @db.VarChar(45)
-  tree        String? @db.VarChar(256)
+  steps       Steps[]
+}
+
+model Steps {
+  id           Int          @id @default(autoincrement())
+  section      String
+  items        Items[]
+  submissionID Int
+  submissions  submissions? @relation(fields: [submissionID], references: [id])
+}
+
+model Items {
+  id     Int    @id @default(autoincrement())
+  item   String
+  stepID Int
+  Steps  Steps? @relation(fields: [stepID], references: [id])
 }

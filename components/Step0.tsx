@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+
 type Step0Props = {
   action: (goto) => void;
   step: number;
@@ -23,7 +24,8 @@ const Step0: React.FC<Step0Props> = ({ action, step, steps }) => {
         />
       </div>
       <div className="headline">
-        Find a top notch, US-based UX/UI designer or Front-End engineer
+        Find a top notch, US-based UX/UI designer, frontend engineer or{" "}
+        <span className="widow">web app developer</span>
       </div>
 
       <div className="buttonContainer">

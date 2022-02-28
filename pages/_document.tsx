@@ -21,17 +21,24 @@ class MyDocument extends Document {
           <meta name="keywords" content={"Frontend, react"} />
           <meta
             name="description"
-            content={"Front-end Finders - Quality developer at your fingertips"}
+            content={
+              "Frontend Finders - Find a quality React UX/UI web app developer at your fingertips"
+            }
           />
           <meta property="og:type" content="website" />
-          <meta property="og:title" content={"Slave Princess - The Film"} />
+          <meta
+            property="og:title"
+            content={
+              "Frontend Finders - Quality Engineers for your web applications."
+            }
+          />
           <meta
             property="og:description"
-            content={"Front-end Finders - Quality developer at your fingertips"}
+            content={"Frontend Finders - Quality developer at your fingertips"}
           />
           <meta
             property="twitter:description"
-            content={"Front-end Finders - Quality developer at your fingertips"}
+            content={"Frontend Finders - Quality developer at your fingertips"}
           />
           <meta
             property="og:image"

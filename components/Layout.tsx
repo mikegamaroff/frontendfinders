@@ -11,9 +11,7 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
 
   return (
     <div className="mainContainer">
-      <header>
-        <div>HEADER / NAV</div>
-      </header>
+      <header>{/*        <div>HEADER / NAV</div> */}</header>
 
       <main>
         <div>{children}</div>
@@ -23,7 +21,6 @@ const Layout: FunctionComponent<LayoutProps> = ({ children }) => {
           <div>© 2021 Frontend Finders.</div>
           <div>All Rights Reserved.</div>
         </div>
-        Footer
       </footer>
     </div>
   );

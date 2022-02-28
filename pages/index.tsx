@@ -1,4 +1,6 @@
-import React, { FunctionComponent, useState, useEffect } from "react";
+import React, { FunctionComponent, useState, useContext } from "react";
+import { AppContext } from "../context/StateContext";
+import { DispatchContext } from "../context/StateContext";
 import Image from "next/image";
 import Step0 from "../components/Step0";
 import Step1 from "../components/Step1";
@@ -15,23 +17,53 @@ import Step11 from "../components/Step11";
 import Progress from "../components/Progress";
 import { gsap } from "gsap";
 import { steps } from "../data/data";
+import { store } from "../data/store";
+import { ItemsConfigTemplate } from "../data/data";
+import SendingLoader from "../components/sendingLoader";
+export interface ISelections {
+  description: string;
+  email: string;
+  name: string;
+  phone: string;
+  steps: {
+    create: {
+      section: string;
+      items: {
+        create: {
+          item: string;
+        }[];
+      };
+    }[];
+  };
+}
+
 type IndexProps = {
   children: any;
 };
+const ItemsConfigTemplateEmpty = {
+  item0: false,
+  item1: false,
+  item2: false,
+  item3: false,
+  item4: false,
+  item5: false,
+  item6: false,
+  item7: false,
+  item8: false,
+  item9: false,
+  item10: false,
+  count: 0,
+};
 
-let originX;
 const Index: FunctionComponent<IndexProps> = ({ children }) => {
   const [step, setStep] = useState(-1);
-  const [selections, setSelection] = useState({
-    creative: [],
-    frontend: [],
-    development: [],
-    personal: [],
-    project: [],
-    paymentPrefs: [],
-    description: "",
-  });
-
+  const [selections, setSelection] = useState(store);
+  /*   const { state, dispatch } = useContext(AppContext); */
+  const { state } = useContext(AppContext);
+  const { dispatch } = useContext(DispatchContext);
+  const [sending, setSending] = useState(false);
+  let buttonConfig;
+  let originX;
   const stepAdvance = (goto) => {
     originX = goto > step ? 500 : -500;
     setStep(goto);
@@ -41,6 +73,21 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
       ease: "power1.out",
       duration: 0.5,
     });
+    dispatch({
+      type: "buttonset",
+      payload: {
+        ...state.buttonConfig,
+        disabled: true,
+      },
+    });
+    dispatch({
+      type: "itemset",
+      payload: ItemsConfigTemplateEmpty,
+    });
+
+    for (const prop of Object.getOwnPropertyNames(ItemsConfigTemplate)) {
+      ItemsConfigTemplate[prop] = ItemsConfigTemplateEmpty[prop];
+    }
   };
   const stepSwipe = (goto) => {
     let swipeStart: object = {
@@ -98,6 +145,46 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
     );
   };
 
+  const submitForm = async (state) => {
+    setSending(false);
+    stepSwipe(10);
+    console.log(selections);
+    notify();
+
+    const req = await fetch("/api/submissions", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selections),
+    });
+    const result = await req;
+
+    if (result.ok) {
+      setSending(false);
+    } else {
+      console.log(result);
+      setSending(false);
+    }
+  };
+
+  const notify = async () => {
+    const req = await fetch("/api/notify", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(selections),
+    });
+    const result = await req;
+
+    if (result.ok) {
+      console.log(result);
+    } else {
+      console.log(result);
+    }
+  };
+
   return (
     <div className="contentOuterContainer">
       <div className="contentInnerContainer">
@@ -121,7 +208,8 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
             </div>
           </div>
           <div className="contentPaper">
-            <div className="innerContentContainer">
+            <div className={"innerContentContainer"}>
+              {sending ? <SendingLoader /> : null}
               {step > -1 && step < 7 ? (
                 <Progress steps={steps} step={step + 1} />
               ) : null}
@@ -131,9 +219,11 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
               {step === 1 - 1 ? (
                 <Step1
                   action={stepSwipe}
+                  /*        action={submitForm} */
                   step={1}
                   steps={steps}
                   selections={selections}
+                  buttonConfig={buttonConfig}
                 />
               ) : null}
               {step === 2 - 1 ? (
@@ -202,20 +292,13 @@ const Index: FunctionComponent<IndexProps> = ({ children }) => {
               ) : null}
               {step === 10 - 1 ? (
                 <Step10
-                  action={stepSwipe}
+                  action={submitForm}
                   step={10}
                   steps={steps}
                   selections={selections}
                 />
               ) : null}
-              {step === 11 - 1 ? (
-                <Step11
-                  action={stepSwipe}
-                  step={11}
-                  steps={steps}
-                  selections={selections}
-                />
-              ) : null}
+              {step === 11 - 1 ? <Step11 /> : null}
             </div>
           </div>
         </div>
