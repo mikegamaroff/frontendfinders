@@ -9,7 +9,7 @@ type Step4Props = {
   steps: Array<any>;
   selections: ISelections;
 };
-
+let tempItems = [];
 const Step4: React.FC<Step4Props> = ({ action, step, steps, selections }) => {
   const { state } = useContext(AppContext);
   return (
@@ -28,6 +28,7 @@ const Step4: React.FC<Step4Props> = ({ action, step, steps, selections }) => {
                 selections={selections}
                 step={step}
                 id={i}
+                tempItems={tempItems}
               />
             </div>
           );

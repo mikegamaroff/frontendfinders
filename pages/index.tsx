@@ -28,11 +28,7 @@ export interface ISelections {
   steps: {
     create: {
       section: string;
-      items: {
-        create: {
-          item: string;
-        }[];
-      };
+      items: string;
     }[];
   };
 }

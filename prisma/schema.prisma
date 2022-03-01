@@ -11,25 +11,26 @@ datasource db {
 }
 
 model submissions {
-  id          Int     @id @default(autoincrement())
-  name        String? @db.VarChar(45)
-  email       String? @db.VarChar(45)
-  description String? @db.Text
-  phone       String? @db.VarChar(45)
+  id          Int      @id @default(autoincrement())
+  name        String?  @db.VarChar(45)
+  email       String?  @db.VarChar(45)
+  description String?  @db.Text
+  phone       String?  @db.VarChar(45)
   steps       Steps[]
+  assignedAt  DateTime @default(now())
 }
 
 model Steps {
   id           Int          @id @default(autoincrement())
-  section      String
-  items        Items[]
+  section      String       @db.VarChar(45)
+  items        String?      @db.Text
   submissionID Int
   submissions  submissions? @relation(fields: [submissionID], references: [id])
 }
 
-model Items {
-  id     Int    @id @default(autoincrement())
-  item   String
-  stepID Int
-  Steps  Steps? @relation(fields: [stepID], references: [id])
-}
+//model Items {
+// id     Int    @id @default(autoincrement())
+// item   String
+//  stepID Int
+//Steps  Steps? @relation(fields: [stepID], references: [id])
+//}

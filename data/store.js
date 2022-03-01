@@ -7,27 +7,27 @@ export const store = {
     create: [
       {
         section: "creative",
-        items: { create: [] },
+        items: "",
       },
       {
         section: "frontend",
-        items: { create: [] },
+        items: "",
       },
       {
         section: "development",
-        items: { create: [] },
+        items: "",
       },
       {
         section: "personal",
-        items: { create: [] },
+        items: "",
       },
       {
         section: "project",
-        items: { create: [] },
+        items: "",
       },
       {
         section: "paymentPrefs",
-        items: { create: [] },
+        items: "",
       },
     ],
   },

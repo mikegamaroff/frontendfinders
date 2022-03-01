@@ -8,28 +8,36 @@ type ItemProps = {
   step: number;
   on: boolean;
   id: number;
+  tempItems: string[];
 };
 
-const Item: React.FC<ItemProps> = ({ val, selections, step, on, id }) => {
+const Item: React.FC<ItemProps> = ({
+  val,
+  selections,
+  step,
+  on,
+  id,
+  tempItems,
+}) => {
   const { dispatch } = useContext(DispatchContext);
   const { state } = useContext(AppContext);
   let count = 0;
+
   const updateRecord = () => {
+    console.log(selections);
     if (!on) {
-      selections.steps.create[step - 1].items.create.push(val);
+      tempItems.push(val.item);
+      selections.steps.create[step - 1].items = tempItems.toString();
       ItemsConfigTemplate[`item${id}`] = true;
       ItemsConfigTemplate.count++;
     } else {
       ItemsConfigTemplate[`item${id}`] = false;
       ItemsConfigTemplate.count--;
-      for (
-        var i = 0;
-        i < selections.steps.create[step - 1].items.create.length;
-        i++
-      ) {
-        let tempVal = selections.steps.create[step - 1].items.create[i].item;
+      for (var i = 0; i < selections.steps.create[step - 1].items.length; i++) {
+        let tempVal = selections.steps.create[step - 1].items[i];
         if (tempVal === val.item) {
-          selections.steps.create[step - 1].items.create.splice(i, 1);
+          tempItems.splice(i, 1);
+          selections.steps.create[step - 1].items = tempItems.toString();
         }
       }
     }

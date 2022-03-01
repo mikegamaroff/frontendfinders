@@ -10,7 +10,7 @@ type Step1Props = {
   selections: ISelections;
   buttonConfig: any;
 };
-
+let tempItems = [];
 const Step1: React.FC<Step1Props> = ({ action, step, steps, selections }) => {
   const { state } = useContext(AppContext);
 
@@ -30,6 +30,7 @@ const Step1: React.FC<Step1Props> = ({ action, step, steps, selections }) => {
                 selections={selections}
                 step={step}
                 id={i}
+                tempItems={tempItems}
               />
             </div>
           );
