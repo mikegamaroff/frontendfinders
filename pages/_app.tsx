@@ -3,6 +3,7 @@ import React, { useContext, useReducer } from "react";
 import { AppContext, DispatchContext } from "../context/StateContext";
 import "../styles/globals.css";
 import "../styles/buttons.css";
+import "../styles/dashboard.css";
 import Layout from "../components/Layout";
 import { reducer } from "../context/reducer";
 import { initialState } from "../context/reducer";

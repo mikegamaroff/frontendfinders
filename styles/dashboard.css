@@ -1,0 +1,37 @@
+.stepRow {
+  padding: 10px;
+  height: auto;
+  width: 100%;
+}
+.stepRow span {
+  padding: 3px;
+  margin: 5px;
+  background-color: rgb(160, 190, 216);
+  border-radius: 10px;
+}
+.innerAdminContainer {
+  padding: 20px;
+  display: flex;
+  font-family: "Pangolin", cursive;
+  flex-direction: column;
+
+  clip-path: inset(-30px);
+  position: relative;
+
+  width: 100%;
+  overflow-y: scroll;
+}
+.userRow,
+.userDescription {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  text-align: center;
+  align-items: center;
+}
+.userRow {
+  padding: 6px 6px 6px 6px;
+}
+.userDescription {
+  padding: 6px 6px 20px 6px;
+}

@@ -10,20 +10,11 @@ export default async function handler(
   res: NextApiResponse /* <Data> */
 ) {
 
-    const getUser = await prisma.submissions.findUnique({
-        where: {
-          id: 10,
-        },include: {
-         steps: true
-        }
-      })
-      const getSteps = await prisma.steps.findMany({
-        where: {
-          submissionID: 10
-        }
-      });
+    const getUsers = await prisma.submissions.findMany()
+     
   /*     const getItems = await prisma.items.findMany(); */
-    return res.send({getSteps});
+
+    return res.status(200).json(getUsers)
 
 }
 

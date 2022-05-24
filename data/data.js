@@ -66,3 +66,20 @@ export let ItemsConfigTemplate = {
   item10: false,
   count: 0,
 };
+
+export let dbFeed = {
+  user: {
+    assignedAt: "",
+    description: "",
+    email: "",
+    id: 0,
+    name: "",
+    phone: "",
+    steps: {
+      id: 0,
+      items: "",
+      section: "",
+      submissionID: 0,
+    },
+  },
+};

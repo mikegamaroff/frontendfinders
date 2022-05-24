@@ -15,8 +15,9 @@ export default async function handler(
     const submissions = await prisma.submissions.findMany();
     const steps = await prisma.steps.findMany();
 /*   const items = await prisma.items.findMany();  */
-/*     const items = await prisma.steps.deleteMany();  */
-    return res.send({steps});
+/*     const items = await prisma.steps.deleteMany(); 
+    const subs = await prisma.submissions.deleteMany();  */  
+    return res.send({submissions});
 
   } else if (req.method === "POST") {
     const { body: data } = req;

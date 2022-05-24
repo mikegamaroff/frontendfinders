@@ -57,6 +57,7 @@ a {
 h1,
 h2,
 h3,
+h4,
 .formRowText {
   font-family: "Cabin Sketch", cursive;
   margin: 0;
@@ -70,6 +71,10 @@ h2 {
 }
 h3 {
   font-weight: 200;
+}
+h4 {
+  font-weight: 600;
+  margin-top: 10px;
 }
 textarea,
 input {
@@ -197,6 +202,7 @@ button:focus {
   height: 330px;
   width: 100%;
 }
+
 .stepsContainer {
   position: absolute;
   display: flex;
